@@ -6,6 +6,7 @@ import java.util.List;
 import com.teamtreehouse.blog.model.BlogEntry;
 import com.teamtreehouse.blog.model.NotFoundException;
 
+// A VERY SIMPLE IMPLEMENTATION OF THE BLOG DAO LAYER. DO NOT RUN THIS LIVE!!
 public class SimpleBlogDAOImpl implements BlogDAO{
     private List<BlogEntry> entries;
 

@@ -1,5 +1,6 @@
 package com.teamtreehouse.blog.model;
 
+// Custom exception same as from the course videos
 public class NotFoundException extends RuntimeException{
 
     /**

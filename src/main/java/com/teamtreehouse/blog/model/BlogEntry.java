@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.github.slugify.Slugify;
 
+// Class for Blog Entries
 public class BlogEntry {
 
     private String title;

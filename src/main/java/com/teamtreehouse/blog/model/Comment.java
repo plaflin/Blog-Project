@@ -2,6 +2,7 @@ package com.teamtreehouse.blog.model;
 
 import java.util.Date;
 
+// Class for Comments for the Blog Entry
 public class Comment {
 
     private String author;

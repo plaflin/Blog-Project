@@ -4,6 +4,7 @@ import com.teamtreehouse.blog.model.BlogEntry;
 
 import java.util.List;
 
+// Data Access Object Layer for Spark blog project
 public interface BlogDAO {
     boolean addEntry(BlogEntry blogEntry);
     List<BlogEntry> findAllEntries();
