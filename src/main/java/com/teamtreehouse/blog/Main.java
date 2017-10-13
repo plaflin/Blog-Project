@@ -100,6 +100,15 @@ public class Main
             return new ModelAndView(model, "detail.hbs");
         }, new HandlebarsTemplateEngine());
 
+        // This route posts comments to the page without changing the post
+        post("/:slug", (req, res) ->{
+            BlogEntry blogEntry = dao.findEntryBySlug(req.params("slug"));
+            Comment comment = new Comment(req.queryParams("comment"), req.queryParams("name"));
+            blogEntry.addComment(comment);
+            res.redirect("/" + blogEntry.getSlug());
+            return null;
+        });
+
         // Routes for the editing of pages
         // This route takes the user to the page that edits a particular blog
         get("/:slug/edit", (req, res) -> {
@@ -111,7 +120,13 @@ public class Main
         // This route posts the edited blog page
         post("/:slug/edit", (req, res) ->{
             BlogEntry blogEntry = dao.findEntryBySlug(req.params("slug"));
-            blogEntry.setTitle(req.queryParams("title"));
+            String oldTitle = blogEntry.getTitle();
+            if(!req.queryParams("title").equals("")) {
+                blogEntry.setTitle(req.queryParams("title"));
+            }
+            else {
+                blogEntry.setTitle(oldTitle);
+            }
             blogEntry.setBody(req.queryParams("entry"));
             res.redirect("/" + blogEntry.getSlug());
             return null;

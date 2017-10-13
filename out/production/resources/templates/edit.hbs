@@ -4,10 +4,10 @@
             <div class="edit-entry">
                 <h2>Edit Entry</h2>
                 <form action="/{{entry.slug}}/edit" method="post">
-                    <label for="title"> Title</label>
-                    <input type="text" name="title"><br>
-                    <label for="entry">Entry</label>
-                    <textarea rows="5" name="entry"></textarea>
+                    <label for="title"> To update your title, just type over the old one</label>
+                    <input type="text" name="title" placeholder="{{entry.title}}"><br>
+                    <label for="entry">You can even make changes to your blog here</label>
+                    <textarea rows="5" name="entry" placeholder="Would you like to update your blog?">{{entry.body}}</textarea>
                     <input type="submit" value="Save Entry" class="button">
                     <a href="/" class="button button-secondary">Cancel</a>
                 </form>
